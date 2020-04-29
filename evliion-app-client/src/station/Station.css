@@ -1,0 +1,116 @@
+body,
+.ant-layout {
+    background: #f3f3f3;
+}
+
+:root {
+    --green: #60b158;
+    --title-size: 24px;
+    --main-size: 18px;
+}
+
+.station {
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.station-profile h2 {
+    font-size: var(--title-size);
+    text-align: center;
+    margin: 32px auto 12px;
+}
+
+.station-details {
+    margin-bottom: 44px;
+    padding: 20px 0;
+    margin: 0 auto;
+}
+
+.station-summary {
+    padding: 20px;
+    font-size: var(--main-size);
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.station-summary label {
+    font-size: 14px;
+    color: #b7b7b7;
+}
+
+.station-summary div:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.station-charge-time {
+    padding: 20px 0;
+}
+
+.station-charge-date label,
+.station-charge-time label {
+    display: block;
+    font-size: var(--main-size);
+    margin-bottom: 5px;
+}
+
+.station-flex {
+    display: flex;
+    margin: 0 auto;
+    max-width: 350px;
+}
+
+.station-charge-time select {
+    appearance: none;
+    text-align-last: center;
+}
+
+.station-charge-date input::placeholder,
+.station-charge-time input::placeholder {
+    color: var(--green);
+    text-align: center;
+}
+
+.station-charge-date input,
+.station-charge-time input,
+.station-charge-time select {
+    margin: 0 5px;
+    background: white;
+    border: 1px solid #e3e3e3;
+    color: var(--green);
+    font-size: var(--main-size);
+    height: 60px;
+    width: 100px;
+    padding: 0 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.station-start {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.station-start label {
+    display: block;
+    font-size: var(--main-size);
+    margin-bottom: 30px;
+}
+
+.station-start .price {
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.station-start .price span {
+    font-size: 14px;
+    vertical-align: text-top;
+}
+
+.station-start button {
+    text-transform: uppercase;
+    background: var(--green);
+    border-color: 1px solid var(--green);
+    padding: 15px 50px;
+    height: auto;
+}

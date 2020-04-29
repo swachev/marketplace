@@ -1,0 +1,48 @@
+.payment {
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.payment h2 {
+    font-size: var(--title-size);
+    text-align: center;
+    margin: 32px auto 12px;
+}
+
+.payment-types {
+    margin-bottom: 15px;
+}
+
+.payment-type {
+    display: flex;
+    align-items: center;
+    padding: 20px 50px;
+    background: white;
+    border: 1px solid #e3e3e3;
+    min-height: 100px;
+}
+
+.payment-type:first-child {
+    margin-bottom: 15px;
+}
+
+.payment-type > :nth-child(2) {
+    margin-left: 30px;
+}
+
+.payment-type > :nth-child(3) {
+    margin-left: auto;
+}
+
+.payment-type img {
+    max-width: 60px;
+}
+
+.payment-button {
+    width: 100%;
+    height: auto;
+    text-transform: uppercase;
+    background: var(--green);
+    border-color: 1px solid var(--green);
+    padding: 15px 50px;
+}

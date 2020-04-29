@@ -1,0 +1,30 @@
+.l-card .rccs__card {
+    width: 500px !important;
+}
+.l-card .rccs__card .rccs__issuer {
+    background-size: 60%;
+}
+.evi-mt-1 {
+    margin-top: 1rem;
+}
+.payment-button {
+    width: 100%;
+    height: auto;
+    text-transform: uppercase;
+    background: var(--green);
+    border-color: 1px solid var(--green);
+    padding: 15px 50px;
+}
+.evi-mr-2 {
+    margin-left: 2rem;
+    background-color: #40a9ff;
+}
+.evi-w-h {
+    width: 60px !important;
+    height: 60px !important;
+}
+.evi-card-name {
+    text-wrap: normal;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+}
