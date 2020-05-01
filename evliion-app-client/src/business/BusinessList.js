@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getAllBusiness } from '../util/APIUtils';
 import Business from '../business/Business';
 import LoadingIndicator  from '../common/LoadingIndicator';
-import { Button, Icon } from 'antd';
+import { Button, Icon, Row, Col, notification } from 'antd';
 import { BUSINESS_LIST_SIZE, DEFAULT_CURRENT_LOCATION } from '../constants';
 import { withRouter } from 'react-router-dom';
 import { getCurrentLocation } from '../util/Helpers'
@@ -51,6 +51,10 @@ class BusinessList extends Component {
                 isLoading: false
             })
         }).catch(error => {
+            notification.error({
+                message: 'Business list fetch error',
+                description: error.message || 'Sorry! Something went wrong. Please try again!'
+            });   
             this.setState({
                 isLoading: false
             })
@@ -106,15 +110,18 @@ class BusinessList extends Component {
     render() {
         const businessViews = [];
         this.state.business.forEach((business) => {
-            businessViews.push(<Business 
-                key={business.id} 
-                business={business}
-                currentLocation={this.state.currentLocation}
-            />)            
+            businessViews.push(
+                <Col key={business.id} xs={24} md={12} lg={8}>
+                    <Business 
+                        business={business}
+                        currentLocation={this.state.currentLocation}
+                    />
+                </Col>
+            )            
         });
 
         return (
-            <div className="business-container">
+            <Row gutter={[16, 4]}>
                 {businessViews}
                 {
                     !this.state.isLoading && this.state.business.length === 0 ? (
@@ -135,7 +142,7 @@ class BusinessList extends Component {
                     this.state.isLoading ? 
                     <LoadingIndicator /> : null                     
                 }
-            </div>
+            </Row>
         );
     }
 }

@@ -42,7 +42,7 @@ class FooterMenu extends Component {
                         <Menu.Item direction='vertical' align='center'>
                             <Link to={`/users/${this.props.currentUser.username}`}>
                                 <div className='menu-footer_item'>
-                                    <UserOutlined style={{ marginRight: '0px', fontSize: '24px' }} />
+                                    <UserOutlined style={{ marginRight: '0px', fontSize: '22px' }} />
                                     <Text>Profile</Text>
                                 </div>
                             </Link>

@@ -23,6 +23,7 @@ import {connect} from 'react-redux';
 
 import {Layout, notification} from 'antd';
 import {getLoggedUser, logout} from "../store/actions";
+import { RenderMediaQuery } from 'render-media-query'
 
 const {Content} = Layout;
 
@@ -153,7 +154,9 @@ class App extends Component {
                         </Switch>
                     </div>
                 </Content>
-                <FooterMenu currentUser={this.props.loggedUser}/> 
+                <RenderMediaQuery renderOn={['(max-width: 576px)']}>
+                    <FooterMenu currentUser={this.props.loggedUser}/> 
+                </RenderMediaQuery>
             </Layout>
         );
     }
