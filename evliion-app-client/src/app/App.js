@@ -13,6 +13,7 @@ import NewPoll from '../poll/NewPoll';
 import Login from '../user/login/Login';
 import Signup from '../user/signup/Signup';
 import Profile from '../user/profile/Profile';
+import Station from '../station/Station';
 import Payment from '../payment/Payment';
 import Success from '../payment/Success';
 import AppHeader from '../common/AppHeader';
