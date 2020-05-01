@@ -4,12 +4,17 @@
   "private": true,
   "jest": {
     "verbose": true,
-    "transformIgnorePatterns": ["/node_modules/"]
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ]
   },
   "dependencies": {
+    "@ant-design/icons": "^4.1.0",
     "and": "0.0.3",
     "antd": "^3.26.13",
+    "geolib": "^3.2.1",
     "payment": "latest",
+    "prop-types": "^15.7.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-redux": "^7.2.0",
@@ -17,7 +22,8 @@
     "react-scripts": "1.1.5",
     "react-test-renderer": "^16.13.1",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "render-media-query": "^0.1.0"
   },
   "scripts": {
     "start": "react-app-rewired start",

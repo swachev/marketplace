@@ -1,4 +1,4 @@
-import {API_BASE_URL, POLL_LIST_SIZE, ACCESS_TOKEN, POST, GET, DELETE} from '../constants';
+import {API_BASE_URL, POLL_LIST_SIZE, BUSINESS_LIST_SIZE, ACCESS_TOKEN, POST, GET, DELETE} from '../constants';
 
 const request = (options) => {
     const headers = new Headers({
@@ -31,6 +31,30 @@ export function getAllPolls(page, size) {
         url: API_BASE_URL + "/polls?page=" + page + "&size=" + size,
         method: GET
     });
+}
+
+export function getAllBusiness(page, size) {
+    page = page || 0;
+    size = size || BUSINESS_LIST_SIZE;
+
+    return request({
+        url: API_BASE_URL + "/business?page=" + page + "&size=" + size,
+        method: GET
+    });
+
+    //TODO: (Mock data) Remove when actual logic will be implemented
+    // return new Promise((resolve, reject) => resolve(
+    //     {
+    //         content: [
+    //             {id: 1, name: 'Flowers Lolita', coordinates: {latitude: 40.9865328, longitude: -6.7962528}, photoUrl: "https://picsum.photos/350/100?random"}, 
+    //             {id: 2, name: 'Clothes Paco', coordinates: {latitude: 40.9865328, longitude: -6.7962528}, photoUrl: "https://picsum.photos/350/100?random"},
+    //             {id: 3, name: 'Really large name name name name name name', coordinates: {latitude: 40.9865328, longitude: -6.7962528}, photoUrl: "https://picsum.photos/350/100?random"},
+    //             {id: 4, name: 'Clothes Paco', coordinates: {latitude: 40.9865328, longitude: -6.7962528}, photoUrl: "https://picsum.photos/350/100?random"},
+    //             {id: 5, name: 'Clothes Paco', coordinates: {latitude: 40.9865328, longitude: -6.7962528}, photoUrl: "https://picsum.photos/350/100?random"},
+    //             {id: 6, name: 'Clothes Paco', coordinates: {latitude: 40.9865328, longitude: -6.7962528}, photoUrl: "https://picsum.photos/350/100?random"},
+    //         ],
+    //     }
+    // ))
 }
 
 export function createPoll(pollData) {

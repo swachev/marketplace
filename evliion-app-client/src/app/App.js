@@ -8,6 +8,7 @@ import {
 import {ACCESS_TOKEN} from '../constants';
 
 import PollList from '../poll/PollList';
+import BusinessList from '../business/BusinessList';
 import NewPoll from '../poll/NewPoll';
 import Login from '../user/login/Login';
 import Signup from '../user/signup/Signup';
@@ -16,6 +17,7 @@ import Station from '../station/Station';
 import Payment from '../payment/Payment';
 import Success from '../payment/Success';
 import AppHeader from '../common/AppHeader';
+import FooterMenu from '../common/FooterMenu';
 import NotFound from '../common/NotFound';
 import LoadingIndicator from '../common/LoadingIndicator';
 import PrivateRoute from '../common/PrivateRoute';
@@ -23,6 +25,7 @@ import {connect} from 'react-redux';
 
 import {Layout, notification} from 'antd';
 import {getLoggedUser, logout} from "../store/actions";
+import { RenderMediaQuery } from 'render-media-query'
 
 const {Content} = Layout;
 
@@ -80,8 +83,14 @@ class App extends Component {
                 <Content className="app-content">
                     <div className="container">
                         <Switch>
-                            <Route exact path="/"
+                            <Route exact path="/polls"
                                    render={(props) => <PollList isAuthenticated={
+                                       this.props.loggedUser.job.isAuthenticated}
+                                                                currentUser={this.props.loggedUser}
+                                                                handleLogout={this.handleLogout} {...props} />}>
+                            </Route>
+                            <Route exact path="/"
+                                   render={(props) => <BusinessList isAuthenticated={
                                        this.props.loggedUser.job.isAuthenticated}
                                                                 currentUser={this.props.loggedUser}
                                                                 handleLogout={this.handleLogout} {...props} />}>
@@ -94,7 +103,7 @@ class App extends Component {
                                        this.props.loggedUser.job.isAuthenticated}
                                                                currentUser={this.props.loggedUser} {...props}  />}>
                             </Route>
-                           {/* <Route path="/stations/:stationId"
+                            {/* <Route path="/stations/:stationId"
                                    render={(props) => <Station
                                        currentStation={this.state.currentStation} {...props} />}>
                             </Route>*/}
@@ -143,6 +152,10 @@ class App extends Component {
                                     currentUser={/*this.state.currentUser*/{name: 'jimmy johnson'}} {...props}/>
                             }>
                             </Route>
+                            <Route
+                                path="/business"
+                                component={BusinessList}
+                            />
                             <PrivateRoute
                                 authenticated={this.props.loggedUser.job.isAuthenticated}
                                 path="/poll/new"
@@ -153,6 +166,9 @@ class App extends Component {
                         </Switch>
                     </div>
                 </Content>
+                <RenderMediaQuery renderOn={['(max-width: 576px)']}>
+                    <FooterMenu currentUser={this.props.loggedUser}/> 
+                </RenderMediaQuery>
             </Layout>
         );
     }
