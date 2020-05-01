@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import {ACCESS_TOKEN} from '../constants';
 
+import PollList from '../poll/PollList';
 import BusinessList from '../business/BusinessList';
 import NewPoll from '../poll/NewPoll';
 import Login from '../user/login/Login';
@@ -81,6 +82,12 @@ class App extends Component {
                 <Content className="app-content">
                     <div className="container">
                         <Switch>
+                            <Route exact path="/polls"
+                                   render={(props) => <PollList isAuthenticated={
+                                       this.props.loggedUser.job.isAuthenticated}
+                                                                currentUser={this.props.loggedUser}
+                                                                handleLogout={this.handleLogout} {...props} />}>
+                            </Route>
                             <Route exact path="/"
                                    render={(props) => <BusinessList isAuthenticated={
                                        this.props.loggedUser.job.isAuthenticated}
@@ -95,6 +102,10 @@ class App extends Component {
                                        this.props.loggedUser.job.isAuthenticated}
                                                                currentUser={this.props.loggedUser} {...props}  />}>
                             </Route>
+                            {/* <Route path="/stations/:stationId"
+                                   render={(props) => <Station
+                                       currentStation={this.state.currentStation} {...props} />}>
+                            </Route>*/}
                             <Route path="/payment" render={
                                 props => <Payment
                                     isAuthenticated={/*this.state.isAuthenticated*/true}
