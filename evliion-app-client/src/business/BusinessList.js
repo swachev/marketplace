@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getAllBusiness, getBusinessByPlace } from '../util/APIUtils';
+import { getAllBusiness } from '../util/APIUtils';
 import Business from '../business/Business';
 import LoadingIndicator  from '../common/LoadingIndicator';
 import { Button, Icon } from 'antd';
@@ -27,11 +27,8 @@ class BusinessList extends Component {
 
     loadbusinessList(page = 0, size = BUSINESS_LIST_SIZE) {
         let promise;
-        if(this.props.place) {
-            getBusinessByPlace(this.props.place, page, size);       
-        } else {
-            promise = getAllBusiness(page, size);
-        }
+
+        promise = getAllBusiness(page, size);
 
         if(!promise) {
             return;
