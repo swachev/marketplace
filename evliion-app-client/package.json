@@ -4,11 +4,15 @@
   "private": true,
   "jest": {
     "verbose": true,
-    "transformIgnorePatterns": ["/node_modules/"]
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ]
   },
   "dependencies": {
+    "@ant-design/icons": "^4.1.0",
     "and": "0.0.3",
     "antd": "^3.26.13",
+    "geolib": "^3.2.1",
     "payment": "latest",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",

@@ -1,3 +1,10 @@
 .app-content {
-  margin-top: 64px;   
+  margin-top: 64px;
+  margin-bottom: 64px;
+  overflow: auto;
+}
+
+.app-container {
+  height: 100vh;
+  overflow: hidden;
 }

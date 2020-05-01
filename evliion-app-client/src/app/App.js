@@ -7,15 +7,15 @@ import {
 } from 'react-router-dom';
 import {ACCESS_TOKEN} from '../constants';
 
-import PollList from '../poll/PollList';
+import BusinessList from '../business/BusinessList';
 import NewPoll from '../poll/NewPoll';
 import Login from '../user/login/Login';
 import Signup from '../user/signup/Signup';
 import Profile from '../user/profile/Profile';
-import Station from '../station/Station';
 import Payment from '../payment/Payment';
 import Success from '../payment/Success';
 import AppHeader from '../common/AppHeader';
+import FooterMenu from '../common/FooterMenu';
 import NotFound from '../common/NotFound';
 import LoadingIndicator from '../common/LoadingIndicator';
 import PrivateRoute from '../common/PrivateRoute';
@@ -81,7 +81,7 @@ class App extends Component {
                     <div className="container">
                         <Switch>
                             <Route exact path="/"
-                                   render={(props) => <PollList isAuthenticated={
+                                   render={(props) => <BusinessList isAuthenticated={
                                        this.props.loggedUser.job.isAuthenticated}
                                                                 currentUser={this.props.loggedUser}
                                                                 handleLogout={this.handleLogout} {...props} />}>
@@ -94,10 +94,6 @@ class App extends Component {
                                        this.props.loggedUser.job.isAuthenticated}
                                                                currentUser={this.props.loggedUser} {...props}  />}>
                             </Route>
-                           {/* <Route path="/stations/:stationId"
-                                   render={(props) => <Station
-                                       currentStation={this.state.currentStation} {...props} />}>
-                            </Route>*/}
                             <Route path="/payment" render={
                                 props => <Payment
                                     isAuthenticated={/*this.state.isAuthenticated*/true}
@@ -143,6 +139,10 @@ class App extends Component {
                                     currentUser={/*this.state.currentUser*/{name: 'jimmy johnson'}} {...props}/>
                             }>
                             </Route>
+                            <Route
+                                path="/business"
+                                component={BusinessList}
+                            />
                             <PrivateRoute
                                 authenticated={this.props.loggedUser.job.isAuthenticated}
                                 path="/poll/new"
@@ -153,6 +153,7 @@ class App extends Component {
                         </Switch>
                     </div>
                 </Content>
+                <FooterMenu currentUser={this.props.loggedUser}/> 
             </Layout>
         );
     }

@@ -103,3 +103,13 @@ export function formatDateTime(dateTimeString) {
 
     return date.getDate() + ' ' + monthNames[monthIndex] + ' ' + year + ' - ' + date.getHours() + ':' + date.getMinutes();
 }  
+
+export function getCurrentLocation() {
+    return new Promise(
+        (resolve, reject) => {
+            if (navigator && navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(resolve, reject);
+            }
+        }
+    )
+}
