@@ -22,7 +22,7 @@ import NotFound from '../common/NotFound';
 import LoadingIndicator from '../common/LoadingIndicator';
 import PrivateRoute from '../common/PrivateRoute';
 import {connect} from 'react-redux';
-
+import HeaderMenu from '../common/HeaderMenu'
 import {Layout, notification} from 'antd';
 import {getLoggedUser, logout} from "../store/actions";
 import { RenderMediaQuery } from 'render-media-query'
@@ -76,10 +76,16 @@ class App extends Component {
         }
         return (
             <Layout className="app-container">
-                <AppHeader isAuthenticated={this.props.loggedUser.job.isAuthenticated}
-                           currentUser={this.props.loggedUser}
-                           onLogout={this.handleLogout}/>
-
+                <RenderMediaQuery renderOn={['(min-width: 576px)']}>
+                    <AppHeader 
+                        isAuthenticated={this.props.loggedUser.job.isAuthenticated}
+                        currentUser={this.props.loggedUser}
+                        onLogout={this.handleLogout}
+                    />
+                </RenderMediaQuery>
+                <RenderMediaQuery renderOn={['(max-width: 576px)']}>
+                    <HeaderMenu />
+                </RenderMediaQuery>
                 <Content className="app-content">
                     <div className="container">
                         <Switch>
