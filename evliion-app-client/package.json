@@ -23,7 +23,7 @@
     "react-test-renderer": "^16.13.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "render-media-query": "^0.1.0"
+    "render-media-query": "^1.0.0"
   },
   "scripts": {
     "start": "react-app-rewired start",
