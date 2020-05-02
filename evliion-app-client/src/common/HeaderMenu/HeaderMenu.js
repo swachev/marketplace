@@ -18,13 +18,8 @@ function HeaderMenu () {
                 <Col align='start' span={!searchInputVisible ? 6 : 24}>
                     <PlaceFinder setSearchInputVisibility={setSearchInputVisibility} searchInputVisible={searchInputVisible} />
                 </Col>
-                {
-                    !searchInputVisible &&
-                    <React.Fragment>
-                        <Col align='center' span={12}><CurrentAddress /></Col>
-                        <Col align='end' span={6}><Badge /></Col>
-                    </React.Fragment>
-                }
+                <Col align='center' style={{ display: searchInputVisible ? 'none' : 'inherit'}} span={12}><CurrentAddress /></Col>
+                <Col align='end' style={{ display: searchInputVisible ? 'none' : 'inherit'}} span={6}><Badge /></Col>
             </Row>
         </Header>
     );
