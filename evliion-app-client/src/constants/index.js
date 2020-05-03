@@ -13,6 +13,14 @@ export const reducerActions = {
     DELETE_PAYMENT_CARDS : "DELETE_PAYMENT_CARDS",
 };
 
+//reducers businessList constants actions
+export const businessListActions = {
+    FETCH_SUCCESS_BUSINESS_LIST : "FETCH_SUCCESS_BUSINESS_LIST",
+    FETCH_ERROR_BUSINESS_LIST : "FETCH_ERROR_BUSINESS_LIST",
+    FETCHING_BUSINESS_LIST : "FETCHING_BUSINESS_LIST",
+    CLEAR_BUSINESS_LIST : "CLEAR_BUSINESS_LIST",
+};
+
 // avoid typo mistakes
 
 export const POST = 'POST';
@@ -71,3 +79,6 @@ export const PASSWORD_MIN_LENGTH = 6;
 export const PASSWORD_MAX_LENGTH = 20;
 
 export const DEFAULT_CURRENT_LOCATION = {longitude: 40.730610, latitud: -73.935242} //New York
+
+export const BASE_URL_API_GEOREVERSE = 'https://eu1.locationiq.com/v1/reverse.php'
+export const API_PRIVATE_KEY = 'PUT HERE A VALID PRIVATE KEY' // Create one here -> https://locationiq.com/

@@ -1,64 +1,22 @@
 import React, { Component } from 'react';
-import { getAllBusiness } from '../util/APIUtils';
 import Business from '../business/Business';
 import LoadingIndicator  from '../common/LoadingIndicator';
 import { Button, Icon, Row, Col, notification } from 'antd';
-import { BUSINESS_LIST_SIZE, DEFAULT_CURRENT_LOCATION } from '../constants';
-import { withRouter } from 'react-router-dom';
+import { DEFAULT_CURRENT_LOCATION } from '../constants';
 import { getCurrentLocation } from '../util/Helpers'
 import './BusinessList.css';
+import {connect} from 'react-redux';
+import { getAllBusinessList } from "../store/actions";
 
+const hasBusiness = (businessListRequest) => businessListRequest.data && businessListRequest.data.content && businessListRequest.data.content.length > 0
 class BusinessList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            business: [],
-            page: 0,
-            size: 10,
-            totalElements: 0,
-            totalPages: 0,
-            last: true,
-            isLoading: false,
             currentLocation: null
         };
-        this.loadbusinessList = this.loadbusinessList.bind(this);
+        this.renderBusinessList = this.renderBusinessList.bind(this);
         this.handleLoadMore = this.handleLoadMore.bind(this);
-    }
-
-    loadbusinessList(page = 0, size = BUSINESS_LIST_SIZE) {
-        let promise;
-
-        promise = getAllBusiness(page, size);
-
-        if(!promise) {
-            return;
-        }
-
-        this.setState({
-            isLoading: true
-        });
-
-        promise            
-        .then(response => {
-            const business = this.state.business.slice();
-            this.setState({
-                business: business.concat(response.content),
-                page: response.page,
-                size: response.size,
-                totalElements: response.totalElements,
-                totalPages: response.totalPages,
-                last: response.last,
-                isLoading: false
-            })
-        }).catch(error => {
-            notification.error({
-                message: 'Business list fetch error',
-                description: error.message || 'Sorry! Something went wrong. Please try again!'
-            });   
-            this.setState({
-                isLoading: false
-            })
-        });  
     }
 
     loadingCurrentPosition() {
@@ -83,68 +41,72 @@ class BusinessList extends Component {
     }
 
     componentDidMount() {
-        this.loadbusinessList();
-        this.loadingCurrentPosition();
-    }
-
-    componentDidUpdate(nextProps) {
-        if(this.props.isAuthenticated !== nextProps.isAuthenticated) {
-            // Reset State
-            this.setState({
-                business: [],
-                page: 0,
-                size: 10,
-                totalElements: 0,
-                totalPages: 0,
-                last: true,
-                isLoading: false
-            });    
-            this.loadbusinessList();
-        }
+        this.props.getAllBusinessList()
+        this.loadingCurrentPosition()
     }
 
     handleLoadMore() {
-        this.loadbusinessList(this.state.page + 1);
+        this.props.getAllBusinessList(this.state.page + 1)
     }
 
-    render() {
-        const businessViews = [];
-        this.state.business.forEach((business) => {
-            businessViews.push(
+    renderBusinessList(businessListRequest) {
+        return hasBusiness(businessListRequest) && 
+        businessListRequest.data.content.map((business) => 
+            (
                 <Col key={business.id} xs={24} md={12} lg={8}>
                     <Business 
                         business={business}
                         currentLocation={this.state.currentLocation}
                     />
                 </Col>
-            )            
-        });
+            )
+        )       
+    }
 
+    render() {
+        const businessListRequest = this.props.businessListRequest
         return (
             <Row gutter={[16, 4]}>
-                {businessViews}
+                { 
+                    businessListRequest.error &&             
+                    notification.error({
+                        message: 'Business list fetch error',
+                        description: 'Sorry! Something went wrong. Please try again!'
+                    })  
+                }
+                { this.renderBusinessList(businessListRequest) }
                 {
-                    !this.state.isLoading && this.state.business.length === 0 ? (
+                    !businessListRequest.isFetching && !hasBusiness(businessListRequest) ? (
                         <div className="no-business-found">
                             <span>No Business Found.</span>
                         </div>    
                     ): null
                 }  
                 {
-                    !this.state.isLoading && !this.state.last ? (
+                    !businessListRequest.isFetching && !businessListRequest.last ? (
                         <div className="load-more-business"> 
-                            <Button type="dashed" onClick={this.handleLoadMore} disabled={this.state.isLoading}>
+                            <Button type="dashed" onClick={this.handleLoadMore} disabled={businessListRequest.isFetching}>
                                 <Icon type="plus" /> Load more
                             </Button>
                         </div>): null
                 }              
                 {
-                    this.state.isLoading ? 
-                    <LoadingIndicator /> : null                     
+                    businessListRequest.isFetching ? <LoadingIndicator /> : null                     
                 }
             </Row>
-        );
-    }
+        );    }
 }
 
-export default withRouter(BusinessList);
+const mapStateToProps = state => {
+    return {
+        businessListRequest: state.businessList
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getAllBusinessList: () => dispatch(getAllBusinessList()),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BusinessList);

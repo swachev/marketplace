@@ -1,4 +1,9 @@
-import {EVILIION_ROLES, paymentCards} from "../constants";
+import {
+    EVILIION_ROLES,
+    BASE_URL_API_GEOREVERSE,
+    API_PRIVATE_KEY, GET,
+    paymentCards,
+} from "../constants";
 
 export const makeExpiry = (month, year) => {
     const expiration = [];
@@ -112,4 +117,14 @@ export function getCurrentLocation() {
             }
         }
     )
+}
+
+export async function getCurrentReverseGeolocation(lat, long) {
+    const coordinates = await getCurrentLocation()
+    const options = 
+    {
+        url: `${BASE_URL_API_GEOREVERSE}?key=${API_PRIVATE_KEY}&lat=${coordinates.coords.latitude}&lon=${coordinates.coords.longitude}&format=json`,
+        method: GET
+    }
+    return fetch(options.url, options)
 }
