@@ -57,6 +57,26 @@ export function getAllBusiness(page, size) {
     // ))
 }
 
+export function searchForBusiness(page, size, searchTerm) {
+    page = page || 0;
+    size = size || BUSINESS_LIST_SIZE;
+
+    return request({
+        url: API_BASE_URL + "/business?page=" + page + "&size=" + size + "&searchTerm=" + searchTerm,
+        method: GET
+    });
+
+    //TODO: (Mock data) Remove when actual logic will be implemented
+    // return new Promise((resolve, reject) => resolve(
+    //     {
+    //         content: [
+    //             {id: 1, name: 'Flowers Lolita', coordinates: {latitude: 40.9865328, longitude: -6.7962528}, photoUrl: "https://picsum.photos/350/100?random"}, 
+    //             {id: 2, name: 'Clothes Paco', coordinates: {latitude: 40.9865328, longitude: -6.7962528}, photoUrl: "https://picsum.photos/350/100?random"},
+    //        ],
+    //     }
+    // ))
+}
+
 export function createPoll(pollData) {
     return request({
         url: API_BASE_URL + "/polls",

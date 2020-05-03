@@ -7,10 +7,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore,combineReducers,applyMiddleware,compose } from 'redux';
 import loggedReducer from './store/reducers/loggedUserReducer';
+import businessListReducer from './store/reducers/businessListReducer';
 import thunk from 'redux-thunk';
 
 const rootReducers = combineReducers({
-    loggedUser: loggedReducer
+    loggedUser: loggedReducer,
+    businessList: businessListReducer,
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

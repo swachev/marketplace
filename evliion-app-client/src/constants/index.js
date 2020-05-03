@@ -13,6 +13,14 @@ export const reducerActions = {
     DELETE_PAYMENT_CARDS : "DELETE_PAYMENT_CARDS",
 };
 
+//reducers businessList constants actions
+export const businessListActions = {
+    FETCH_SUCCESS_BUSINESS_LIST : "FETCH_SUCCESS_BUSINESS_LIST",
+    FETCH_ERROR_BUSINESS_LIST : "FETCH_ERROR_BUSINESS_LIST",
+    FETCHING_BUSINESS_LIST : "FETCHING_BUSINESS_LIST",
+    CLEAR_BUSINESS_LIST : "CLEAR_BUSINESS_LIST",
+};
+
 // avoid typo mistakes
 
 export const POST = 'POST';
