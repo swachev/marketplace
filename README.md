@@ -1,3 +1,70 @@
+Request URL:
+```bash
+GET http://localhost:5000/api/v1/store/2
+```
+Response:
+```bash
+{
+    "createdAt": "2020-05-25T19:26:56Z",
+    "updatedAt": "2020-05-25T19:26:56Z",
+    "id": 2,
+    "address": {
+        "createdAt": "2020-05-25T19:26:56Z",
+        "updatedAt": "2020-05-25T19:26:56Z",
+        "id": 2,
+        "line1": "Near Dehu road",
+        "line2": "Opp Priyadarshani",
+        "zipCode": 12345,
+        "city": "Pune",
+        "state": "Delhi",
+        "country": "India",
+        "lattitude": 1311313131313,
+        "longitude": 1421414124141
+    },
+    "products": [
+        {
+            "createdAt": "2020-05-25T19:29:16Z",
+            "updatedAt": "2020-05-25T19:29:16Z",
+            "id": 1,
+            "name": "Hand sanitizer",
+            "category": "Grocery",
+            "isActive": null,
+            "currency": "USD",
+            "unit": "Pounds",
+            "quantity": 50,
+            "rate": 13.12
+        },
+        {
+            "createdAt": "2020-05-25T19:34:57Z",
+            "updatedAt": "2020-05-25T19:34:57Z",
+            "id": 2,
+            "name": "Hand sanitizer",
+            "category": "Grocery",
+            "isActive": null,
+            "currency": "USD",
+            "unit": "Pounds",
+            "quantity": 50,
+            "rate": 13
+        },
+        {
+            "createdAt": "2020-05-25T19:43:40Z",
+            "updatedAt": "2020-05-25T19:43:40Z",
+            "id": 3,
+            "name": "Hand sanitizer",
+            "category": "Grocery",
+            "isActive": null,
+            "currency": "USD",
+            "unit": "Pounds",
+            "quantity": 50,
+            "rate": 13
+        }
+    ],
+    "name": "Nageshwar Station 3",
+    "category": "VEGETABLES",
+    "subCategory": "ONSTORE",
+    "active": true
+}
+```
 # marketplace
 Marketplace
 
