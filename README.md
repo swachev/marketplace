@@ -1,68 +1,125 @@
 Request URL:
 ```bash
-GET http://evcharge-app-server2-dev.us-west-2.elasticbeanstalk.com/api/v1/store/2
+GET http://evcharge-app-server2-dev.us-west-2.elasticbeanstalk.com/api/v1/store/all
 ```
 Response:
 ```bash
 {
-    "createdAt": "2020-05-25T19:26:56Z",
-    "updatedAt": "2020-05-25T19:26:56Z",
-    "id": 2,
-    "address": {
-        "createdAt": "2020-05-25T19:26:56Z",
-        "updatedAt": "2020-05-25T19:26:56Z",
-        "id": 2,
-        "line1": "Near Dehu road",
-        "line2": "Opp Priyadarshani",
-        "zipCode": 12345,
-        "city": "Pune",
-        "state": "Delhi",
-        "country": "India",
-        "lattitude": 1311313131313,
-        "longitude": 1421414124141
-    },
-    "products": [
+    "content": [
         {
-            "createdAt": "2020-05-25T19:29:16Z",
-            "updatedAt": "2020-05-25T19:29:16Z",
-            "id": 1,
-            "name": "Hand sanitizer",
-            "category": "Grocery",
-            "isActive": null,
-            "currency": "USD",
-            "unit": "Pounds",
-            "quantity": 50,
-            "rate": 13.12
-        },
-        {
-            "createdAt": "2020-05-25T19:34:57Z",
-            "updatedAt": "2020-05-25T19:34:57Z",
             "id": 2,
-            "name": "Hand sanitizer",
-            "category": "Grocery",
-            "isActive": null,
-            "currency": "USD",
-            "unit": "Pounds",
-            "quantity": 50,
-            "rate": 13
+            "name": "Nageshwar mart",
+            "address": {
+                "line1": "Near Puma",
+                "line2": "Opp Durga",
+                "zipCode": 3333,
+                "city": "Mumbai",
+                "state": "Delhi",
+                "country": "India",
+                "lattitude": 66466446,
+                "longitude": 64446466436
+            },
+            "category": "BAKERY",
+            "subCategory": "ONSTORE",
+            "products": [
+                {
+                    "name": "Cake",
+                    "description": "Birthday cake",
+                    "category": "Bakery",
+                    "currency": "USD",
+                    "unit": "lbs",
+                    "rate": 5.33,
+                    "attributes": [
+                        {
+                            "name": "size",
+                            "value": "Normal"
+                        },
+                        {
+                            "name": "color",
+                            "value": "Pink"
+                        }
+                    ]
+                },
+                {
+                    "name": "Pizza",
+                    "description": "Without toppings",
+                    "category": "Bakery",
+                    "currency": "USD",
+                    "unit": "lbs",
+                    "rate": 3.33,
+                    "attributes": [
+                        {
+                            "name": "size",
+                            "value": "Large"
+                        },
+                        {
+                            "name": "color",
+                            "value": "NA"
+                        }
+                    ]
+                }
+            ]
         },
         {
-            "createdAt": "2020-05-25T19:43:40Z",
-            "updatedAt": "2020-05-25T19:43:40Z",
-            "id": 3,
-            "name": "Hand sanitizer",
-            "category": "Grocery",
-            "isActive": null,
-            "currency": "USD",
-            "unit": "Pounds",
-            "quantity": 50,
-            "rate": 13
+            "id": 1,
+            "name": "Chandan mart",
+            "address": {
+                "line1": "Near Dehu road",
+                "line2": "Opp Priyadarshani",
+                "zipCode": 12345,
+                "city": "Pune",
+                "state": "Delhi",
+                "country": "India",
+                "lattitude": 1311313131313,
+                "longitude": 1421414124141
+            },
+            "category": "VEGETABLES",
+            "subCategory": "ONSTORE",
+            "products": [
+                {
+                    "name": "Allen Soly T shirt",
+                    "description": "Clothes",
+                    "category": "Garments",
+                    "currency": "USD",
+                    "unit": "lbs",
+                    "rate": 13.33,
+                    "attributes": [
+                        {
+                            "name": "size",
+                            "value": "M"
+                        },
+                        {
+                            "name": "color",
+                            "value": "Blue"
+                        }
+                    ]
+                },
+                {
+                    "name": "Chana Daal",
+                    "description": "Chana Daal",
+                    "category": "Grocery",
+                    "currency": "USD",
+                    "unit": "lbs",
+                    "rate": 10.33,
+                    "attributes": [
+                        {
+                            "name": "size",
+                            "value": "Normal"
+                        },
+                        {
+                            "name": "color",
+                            "value": "Yellow"
+                        }
+                    ]
+                }
+            ]
         }
     ],
-    "name": "Nageshwar Station 3",
-    "category": "VEGETABLES",
-    "subCategory": "ONSTORE",
-    "active": true
+    "page": 0,
+    "size": 30,
+    "totalElements": 2,
+    "totalPages": 1,
+    "last": true
 }
 ```
 # marketplace
