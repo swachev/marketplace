@@ -1,6 +1,6 @@
 Request URL:
 ```bash
-GET http://localhost:5000/api/v1/store/2
+GET http://evcharge-app-server2-dev.us-west-2.elasticbeanstalk.com/api/v1/store/2
 ```
 Response:
 ```bash
