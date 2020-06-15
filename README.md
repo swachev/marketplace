@@ -179,7 +179,6 @@ Clone the application
 
 ```bash
 git clone git@github.com:swachev/marketplace.git
-cd evliion-app-server
 ```
 
 First go to the `evliion-app-client` folder -
